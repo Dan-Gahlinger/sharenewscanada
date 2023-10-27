@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create a News Link that can be Shared on Facebook Canada</title>
+
+<script type="text/javascript">
+function createurl(){
+	var url = document.getElementById("url");
+	var urlvalue = url.value;
+	var urlleft = urlvalue.substring(0,4);
+	var search = "https://www.google.com/search?q=";
+	var count = "&count=1";
+	if (urlleft == "http") {
+		var url2 = search.concat(urlvalue);
+		url2 = url2.concat(count);
+
+		var urlshare = document.getElementById("urlshare");
+		urlshare.value = url2;
+		copyurlshare();
+	}
+	else {
+		alert("Please enter a news story link starting with http or https");
+		url.focus();
+	}
+};
+
+function viewurlshare(){
+	var urlshare = document.getElementById("urlshare");
+	var urlsharevalue = urlshare.value;
+	var urlshareleft = urlsharevalue.substring(0,4);
+	if (urlshareleft == "http") {	
+		window.location.href = urlsharevalue;
+	}
+}
+
+function copyurlshare(){
+	var urlshare = document.getElementById("urlshare");
+	var urlsharevalue = urlshare.value;
+	urlshare.select();
+	navigator.clipboard.writeText(urlsharevalue);
+}
+
+</script>
+</head>
+
+<body style="font-family: sans-serif;max-width:1000px">
+<img src="image.png" >
+<h1>Create a News Link that can be Shared on Facebook Canada</h1>
+<ol>
+<li>Insert a link to a news story you want to share on Facebook Canada.</li>
+<li>Click the Create Link button. The tool creates a Google search link featuring the one result. A Google Search link will not be blocked.</li>
+<li>Share the link on Facebook. (The link could generate a Facebook preview for the Google search, which you can keep or cancel.)</li>
+</ol>
+<p><input type="url" name="url" id="url" placeholder="https://newsstory.com" pattern="https://.*" size="100" required />
+<p><input id="butCreate" type="button" value="Create Link" onclick="createurl();" />
+<p><input type="text" name="urlshare" id="urlshare" size="100" />
+<p><input id="butCopy" type="button" value="Copy Link" onclick="copyurlshare();" />
+<input id="butView" type="button" value="View Link" onclick="viewurlshare();" />
+
+<h2>More Information</h2>
+<p>This work is shared to the public domain <a href="https://creativecommons.org/publicdomain/zero/1.0/">(CCO 1.0)</a> at <a href="https://github.com/Dan-Gahlinger/sharenewscanada">GitHub</a>
+<p>
+</body>
+</html>
